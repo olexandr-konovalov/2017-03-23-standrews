@@ -1,0 +1,133 @@
+---
+title: "Building Programs With Python (1)"
+author: "Leighton Pritchard"
+output: 
+  revealjs::revealjs_presentation:
+    theme: white
+    center: true
+    highlight: pygments
+    transition: fade
+    css: reveal.css
+---
+
+# Introduction
+
+## Goal 1
+
+* **To learn the basic concepts of programming**
+
+We use `Python` for this:
+
+* we need *something* ;)
+* free, well-documented, cross-platform
+* widely-used
+
+**Use what your colleagues (tend to) use**
+
+## Goal 2
+
+* **To analyse and visualise experimental data**
+
+* Effectiveness of a new treatment for arthritis
+* Several patients, recording inflammation on each day
+* Tabular (comma-separated) data
+
+**We can do this with a little programming**
+
+* Why programming? **AUTOMATION**
+
+# Setup
+
+## Setting up - 1
+
+Before we begin… 
+
+* **make a neat working environment**
+* obtain data
+
+```bash
+cd ~/Desktop
+mkdir python-novice-inflammation
+cd python-novice-inflammation
+```
+
+**LIVE DEMO**
+
+## Setting up - 2
+
+Before we begin… 
+
+* make a neat working environment
+* **obtain data**
+
+```bash
+cp 2017-03-23-standrews/lessons/python-01/data/python-novice-inflammation-data.zip ./
+cp 2017-03-23-standrews/lessons/python-01/data/python-novice-inflammation-code.zip ./
+unzip python-novice-inflammation-data.zip
+unzip python-novice-inflammation-code.zip
+```
+
+(you can download files via `Etherpad`)
+
+**LIVE DEMO**
+
+# Getting Started
+
+## Starting `Jupyter`
+
+At the command-line, start `Jupyter` notebook:
+
+```bash
+jupyter notebook
+```
+
+## `Jupyter` landing page
+
+<img src="images/jupyter_landing.png" height="450px" />
+
+## Create a new notebook
+
+<img src="images/new_notebook_menu.png" height="250px" />
+<img src="images/empty_notebook.png" height="200px" />
+
+## My first notebook
+
+* Give your notebook a name (`variables`)
+
+<img src="images/name_notebook.png" height="200px" />
+<img src="images/variables_notebook.png" height="200px" />
+
+## Cell types
+
+* `Jupyter` documents are comprised of *cells*
+* A `Jupyter` cell can have one of several types
+
+<img src="images/cell_types.png" height="250px" />
+
+* Change the first cell to `Markdown`
+
+## Markdown text
+
+* `Markdown` allows us to enter formatted text.
+
+<img src="images/markdown1.png" />
+
+* Execute a cell with `Shift + Enter`
+
+<img src="images/markdown2.png" height="200px" />
+
+## Entering code
+
+* Mathematical statements can be entered directly into a code cell
+
+<img src="images/code_pre_execution.png" />
+
+* Execute a cell with `Shift + Enter`
+
+<img src="images/code_post_execution.png" />
+
+## <img src="images/exercise.png" height="75px" /> Exercise (5min)
+
+* Try out some of your own calculations in code cells, e.g.
+
+<img src="images/calculator_exercise.png" height="300px" />
