@@ -165,5 +165,101 @@ print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
 ```
 * **Although we changed the value in `weight_kg`, we did not change `weight_lb` when we did so**
 
+----
+**SLIDE** DATA ANALYSIS
 
+----
+**SLIDE** START A NEW NOTEBOOK
 
+* Create a new notebook, and give it the name `analysis`
+
+----
+**SLIDE** EXAMINE THE DATA
+
+* Use the terminal (`head` from this morning)
+ 
+```bash
+head data/inflammation-01.csv
+```
+
+* Describe plain text, csv format
+* State that we'll use the `numpy` library
+
+----
+**SLIDE** `PYTHON` LIBRARIES
+
+* `Python` contains many basic and general functions and tools
+* Specialised tools are packaged in *libraries*
+* We can call on libraries with the `import` statement, when we need them
+* Importing a library is like getting a new piece of equipment out of the locker and onto the lab bench
+* Libraries add functionality to your current `Python` instance
+
+----
+**SLIDE** `JUPYTER` MAGIC
+
+* `Jupyter` provides another way to load libraries, through *magics*
+* **Do the `pylab` magic**
+* **Import `numpy` and `seaborn`**
+* Note that warnings about fonts may be normal.
+
+----
+**SLIDE** `NUMPY`, `SEABORN`, `PYLAB`
+
+* `numpy` is a library that provides functions and pethods to work with arrays and matrices, such as those in your dataset
+* `seaborn` is a library that enables attractive graphs and statistical summaries
+* `pylab` is a library that mimics `MatLab` in `Python`, providing a number of useful tools for numerical operations and visualisation
+
+----
+**SLIDE** LOAD DATA
+
+* The `numpy` library gives us a function called `loadtxt()` that loads tabular data from a file
+* It's used as `numpy.loadtxt()`
+* *Dotted notation* tells us that `loadtxt()` belongs to `numpy`
+* `loadtxt()` expects two *arguments* or *parameters*
+* The parameter `fname` takes the path to the file we want to load
+* The parameter `delimiter` takes the character that we think separates columns in that file
+* `Python` will accept double- or single-quotes around strings
+* **Execute the line in a cell**
+
+----
+**SLIDE** LOADED DATA
+
+* Since we didn't ask `Python` to do anything with the data, it just shows it to us.
+* The data is truncated by default - *ellipses* (`...`) show rows and columns that were excluded for space 
+* Significant digits are not shown
+* **NOTE that integers in the file have been converted to floating point numbers**
+* **Ask the learners to assign the matrix to a variable called `data`**
+
+----
+**SLIDE** WHAT IS OUR DATA? **LIVE DEMO**
+
+* Take the learners through the code:
+
+```python
+type(data)
+print(data.dtype)
+print(data.shape)
+```
+
+* `type(data)` is a `numpy.ndarray` - an *n*-dimensional array
+* `print(data.dtype)` tells us that the values in the array are 64-bit floating point numbers
+* `print(data.shape)` tells us that there are 60 rows and 40 columns in the dataset
+
+----
+**SLIDE** MEMBERS AND ATTRIBUTES
+
+* When we created `data` we didn't just create the array, we also created information about the array, called *members* or *attributes*
+* This information belongs to `data` so is accessed in the same way as a module function, through *dotted notation*
+
+----
+**SLIDE** INDEXING ARRAYS
+
+* **Take learners through making notes in the notebook**
+* To get a single element from the array, index using *square bracket* notation - row first, then column
+* In `Python` we index from zero, so the first element is `data[0, 0]`
+* **Do the two `print()` examples**
+
+```python
+print('first value in data:', data[0, 0])
+print('middle value in data:', data[30, 20])
+```
