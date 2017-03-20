@@ -83,7 +83,7 @@ jupyter notebook
 
 ## `Jupyter` landing page
 
-<img src="images/jupyter_landing.png" height="450px" />
+<img src="images/jupyter_landing.png" />
 
 ## Create a new notebook
 
@@ -131,3 +131,52 @@ jupyter notebook
 * Try out some of your own calculations in code cells, e.g.
 
 <img src="images/calculator_exercise.png" height="300px" />
+
+## My first variable
+
+<img src="images/my_first_variable.png" />
+<img src="images/boxes_variables_arrow.png" height="300px" />
+
+* Let's create a variable called `name`, containing `"Samia"`
+
+## Printing a variable
+
+<img src="images/samia_variable.png" />
+
+* The `print()` *function* shows the contents of a variable
+
+<img src="images/print_samia.png" />
+<img src="images/boxes_variables_arrow.png" height="300px" />
+
+## Working with variables
+
+```python
+weight_kg = 55
+print(weight_kg)
+2.2 * weight_kg
+print("weight in pounds", 2.2 * weight_kg)
+weight_kg = 57.5
+print("weight in kilograms is now:", weight_kg)
+weight_lb = 2.2 * weight_kg
+print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
+weight_kg = 100
+print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
+```
+
+* **LIVE DEMO**
+
+## Who's who in memory?
+
+* **If you are in a `Jupyter` notebook or `iPython` terminal…**
+* `%whos` will show you all defined variables
+
+<img src="images/whos_who.png" />
+
+
+# Data Analysis
+
+## Start a new notebook
+
+<img src="images/new_notebook_menu.png" height="250px" />
+<img src="images/empty_notebook.png" height="200px" />
+<img src="images/analysis_notebook.png" height="200px" />
