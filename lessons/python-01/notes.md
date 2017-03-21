@@ -306,3 +306,62 @@ print(data[:3, 36:])
 print('doubledata:')
 print(doubledata[:3, 36:])
 ```
+
+----
+**SLIDE** `NUMPY` FUNCTIONS
+
+* `numpy` provides functions that can perform *more complex* operations on arrays
+* Some of these operations include statistical summaries: `.mean()`, `.min()`, `.max()` etc.
+* **Demo code**
+* These operations give summaries of the whole array
+* The `data` array also has these summary functions
+
+
+```python
+print(numpy.mean(data))
+maxval, minval, stdval = numpy.max(data), numpy.min(data), numpy.std(data)
+print('maximum inflammation:', maxval)
+print('minimum inflammation:', minval)
+print('standard deviation:', stdval)
+maxval, minval, stdval = data.max(), data.min(), data.std()
+print('maximum inflammation:', maxval)
+print('minimum inflammation:', minval)
+print('standard deviation:', stdval)
+```
+
+----
+**SLIDE** SUMMARY BY PATIENT
+
+* What if we want to get summaries patient-by-patient (row-by-row)?
+* **Demo code**
+* We can extract a single row into a variable, and calculate the mean
+* We can also apply the `numpy` function directly, without creating a variable
+* **NOTE: that comments are preceded with a hash `#` and can be placed after a line of code**
+* **EXPLAIN: why leaving comments is good (can do that in all code - not just Jupyter notebooks)**
+
+```python
+patient_0 = data[0, :] # Row zero only, all columns
+print('maximum inflammation for patient 0:', patient_0.max())
+print('maximum inflammation for patient 0:', numpy.max(data[0, :]))
+print('maximum inflammation for patient 2:', numpy.max(data[2, :]))
+```
+
+---- 
+**SLIDE** SUMMARY OF ALL PATIENTS
+
+* But what if we want to know about all patients at once?
+* Or what if we want an average inflammation per day?
+* Writing one line per row, or per column, is likely to lead to mistakes and typos
+* We can instead specify which axis a function applies to
+* Specifying `axis=0` makes the function work on columns (days)
+* Specifying `axis=1` makes the function work on rows (patients)
+
+----
+**SLIDE** `NUMPY` OPERATIONS ON AXES
+
+* **Demo the code**
+
+```python
+print(numpy.max(data, axis=1))
+print(data.mean(axis=0))
+```

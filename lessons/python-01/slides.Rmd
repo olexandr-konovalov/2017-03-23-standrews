@@ -334,3 +334,54 @@ print(tripledata[:3, 36:])
 ```
 
 **LIVE DEMO**
+
+## `numpy` functions
+
+* `numpy` provides functions to operate on arrays
+
+```python
+print(numpy.mean(data))
+maxval, minval, stdval = numpy.max(data), numpy.min(data), numpy.std(data)
+print('maximum inflammation:', maxval)
+print('minimum inflammation:', minval)
+print('standard deviation:', stdval)
+maxval, minval, stdval = data.max(), data.min(), data.std()
+print('maximum inflammation:', maxval)
+print('minimum inflammation:', minval)
+print('standard deviation:', stdval)
+```
+
+* By default, these give summaries of the whole array.
+
+**LIVE DEMO**
+
+## Summary by patient
+
+* Extract a single row, or operate directly on a row
+
+```python
+patient_0 = data[0, :] # Row zero only, all columns
+print('maximum inflammation for patient 0:', patient_0.max())
+print('maximum inflammation for patient 0:', numpy.max(data[0, :]))
+print('maximum inflammation for patient 2:', numpy.max(data[2, :]))
+```
+
+**LIVE DEMO**
+
+## Summary of all patients
+
+* What if we need maximum inflammation for each patient or average inflammation on each day?
+* One line per patient/per day? Tedious. Prone to errors/typos.
+
+<img src="images/python-operations-across-axes.png" height="375px" />
+
+## `numpy` operations on axes
+
+* `numpy` functions take an `axis=` parameter: `0` (columns) or `1` (rows)
+
+```python
+print(numpy.max(data, axis=1))
+print(data.mean(axis=0))
+```
+
+**LIVE DEMO**
