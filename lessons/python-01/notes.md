@@ -532,3 +532,89 @@ fig.tight_layout()                                   # tidy the figure
 * So, we need to tell the computer to repeat our plots and analysis on each dataset
 * We're going to do this with `for` loops
 * **NOTE: `for` loops are a fundamental method for program control across nearly every programming language**
+* **NOTE: `for` loops in python work just like those the learners saw in `bash`, but are syntactically different**
+
+----
+**SLIDE** SPELLING BEE
+
+* If we want to spell a word one letter at a time, we can *index* each letter in turn
+* **Demo code**
+
+```python
+word = "lead"
+print(word[0])
+print(word[1])
+print(word[2])
+print(word[3])
+```
+
+* But this is bad - **Why?**
+* The approach doesn't scale - what if our word is hundreds of letters long?
+* If our word is longer than the indices, we don't get all the data; if it's shorter, we get an error.
+  * **demonstrate with `oxygen` and `tin`**
+
+----
+**SLIDE** `FOR` LOOPS
+
+* `for` loops perform an operation *for* every item *in* a collection
+* **Demo code**
+
+```python
+word = "lead"
+for char in word:
+    print(char)
+```
+
+* This has two advantages - it's shorter code (less opportunity for error), and it's more flexible and robust - it doesn't matter how long `word` is, the code will still spell it out one letter at a time
+  * **demonstrate with `oxygen` and `tin`**
+  
+----
+**SLIDE** BUILDING `FOR` LOOPS
+
+* The general loop syntax is defined by a `for` statement, and a *code block*
+
+```python
+for element in collection:
+    <do things with element>
+```
+
+* The `for` loop statement ends in a colon, `:`
+* The *code block* is **indented** with a `tab` (`\t`)
+  * **Everything indented immediately below the `for` statement is part of the `for` loop**
+  * **There is no command or statement to signify the end of the loop body - only a change in indentation**
+  * This is quite different from most other languages (and some people hate `Python` because of it)
+* **Demonstrate**
+
+```python
+for char in word:
+    print(char)
+    print("I'm in the loop!")
+    # This is a comment
+    print("I'm also in the loop!")
+    
+    print("Still in the loop!")
+print("This line is not part of the loop")    
+```
+
+----
+**SLIDE** `FOR` LOOP CYCLES
+
+![`for` loop image](images/loops_image.png)
+
+* In this image, each successive character of `word` is placed, one at a time, in the variable `char`.
+  * In each cycle of the loop, the contents of the variable `char` are printed
+  * Once the code block is complete, the next cycle of the loop starts
+
+----
+**SLIDE** COUNTING THINGS
+
+* **Ask the learners what output they expect from the code below**
+
+```python
+length = 0
+for vowel in 'aeiou':
+    length = length + 1
+print('There are', length, 'vowels')
+```
+
+* **Demo the code**
