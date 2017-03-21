@@ -67,7 +67,9 @@ unzip python-novice-inflammation-data.zip
 unzip python-novice-inflammation-code.zip
 ```
 
-(you can download files via `Etherpad`)
+(you can download files via [`Etherpad`](http://pad.software-carpentry.org/2017-03-23-standrews))
+
+([http://pad.software-carpentry.org/2017-03-23-standrews](http://pad.software-carpentry.org/2017-03-23-standrews))
 
 **LIVE DEMO**
 
