@@ -225,7 +225,7 @@ head data/inflammation-01.csv
 **SLIDE** LOADED DATA
 
 * Since we didn't ask `Python` to do anything with the data, it just shows it to us.
-* The data is truncated by default - *ellipses* (`...`) show rows and columns that were excluded for space 
+* The data display is truncated by default - *ellipses* (`...`) show rows and columns that were excluded for space 
 * Significant digits are not shown
 * **NOTE that integers in the file have been converted to floating point numbers**
 * **Ask the learners to assign the matrix to a variable called `data`**
@@ -262,4 +262,47 @@ print(data.shape)
 ```python
 print('first value in data:', data[0, 0])
 print('middle value in data:', data[30, 20])
+```
+
+----
+**SLIDE** SLICING ARRAYS
+
+* **Take learners through making notes in the notebook**
+* To get a section from the array, index using *square bracket* notation - but specify start and end points, separated by a colon
+* The slice `0:4` means start at index zero and go up to, but not including, index 4. So it takes elements `0, 1, 2, 3` (four elements)
+* **Do the two `print()` examples**
+
+```python
+print(data[0:4, 0:10])
+print(data[5:10, 0:10])
+```
+
+----
+**SLIDE** MORE SLICES, PLEASE!
+
+* If we don't specify a start for the slice, `Python` assumes the first element is meant (element zero)
+* If we don't specify an end for the slice, `Python` assumes the last element is meant
+* To get the top-right corner of the array, we can specify `data[:3, 36:]`
+* **Demo the code**
+
+```python
+small = data[:3, 36:]
+print('small is:')
+print(small)
+```
+
+----
+**SLIDE** ARRAY OPERATIONS
+
+* Arithmetic operations on `array`s are performed elementwise.
+* **Demo the code**
+* Operations with scalars act *elementwise*
+* Operations with two arrays are *elementwise*
+
+```python
+doubledata = data * 2.0
+print('original:')
+print(data[:3, 36:])
+print('doubledata:')
+print(doubledata[:3, 36:])
 ```

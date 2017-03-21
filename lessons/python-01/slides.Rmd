@@ -213,7 +213,7 @@ $ head data/inflammation-01.csv
 
 ```python
 import numpy
-import seaborn as sns
+import seaborn
 ```
 
 ## `JUPYTER` MAGIC
@@ -223,7 +223,7 @@ import seaborn as sns
 ```python
 %pylab inline
 import numpy
-import seaborn as sns
+import seaborn
 ```
 
 * **This only works in `Jupyter` notebooks**
@@ -270,9 +270,8 @@ print(data.shape)
 
 ## Members and attributes
 
-* Creating the array did not just create a matrix
-* Information about the matrix was created, too
-* The information is stored in *members* or *attributes* that belong to `data`
+* Creating the array created information, too
+* Info stored in *members* or *attributes* that belong to `data`
 * `data.<attribute>` e.g. `data.shape`
 
 ## Indexing arrays
@@ -285,3 +284,51 @@ print(data.shape)
 print('first value in data:', data[0, 0])
 print('middle value in data:', data[30, 20])
 ```
+
+**LIVE DEMO**
+
+## Slicing arrays
+
+<img src="images/slice_text.png" />
+
+* Define *start* and *end* separated by `:` (colon).
+
+```python
+print(data[0:4, 0:10])
+print(data[5:10, 0:10])
+```
+
+**LIVE DEMO**
+
+## More slices, please!
+
+* Don't specify *start*, `Python` assumes the first element
+* Don't specify *end*, `Python` assumes the end element
+
+**QUESTION:** What would `:` on its own indicate?
+
+```python
+small = data[:3, 36:]
+print('small is:')
+print(small)
+```
+
+**LIVE DEMO**
+
+## Array operations
+
+* `array`s know how to perform operations on their values
+* `+`, `-`, `*`, `/`, etc. are *elementwise*
+
+```python
+doubledata = data * 2.0
+print('original:')
+print(data[:3, 36:])
+print('doubledata:')
+print(doubledata[:3, 36:])
+tripledata = doubledata + data
+print('tripledata:')
+print(tripledata[:3, 36:])
+```
+
+**LIVE DEMO**
