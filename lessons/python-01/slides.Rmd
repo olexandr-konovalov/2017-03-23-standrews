@@ -128,7 +128,7 @@ jupyter notebook
 
 <img src="images/code_post_execution.png" />
 
-## <img src="images/exercise.png" height="75px" /> Exercise (5min)
+## <img src="images/exercise.png" height="75px" /> Exercise 01 (5min)
 
 * Try out some of your own calculations in code cells, e.g.
 
@@ -166,6 +166,37 @@ print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
 ```
 
 * **LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 02 (5min)
+
+What are the values in `mass` and `age` after the following code is executed?
+
+```python
+mass = 47.5
+age = 122
+mass = mass * 2.0
+age = age - 20
+```
+
+1. `mass == 47.5`, `age == 122`
+2. `mass == 95.0`, `age == 102`
+3. `mass == 47.5`, `age == 102`
+4. `mass == 95.0`, `age == 122`
+
+## <img src="images/exercise.png" height="75px" /> Exercise 03 (5min)
+
+What does the following code print out?
+
+```python
+first, second = 'Grace', 'Hopper'
+third, fourth = second, first
+print(third, fourth)
+```
+
+1. `Hopper Grace`
+2. `Grace Hopper`
+3. `"Grace Hopper"`
+4. `"Hopper Grace"`
 
 ## Who's who in memory?
 
@@ -317,6 +348,23 @@ print(small)
 
 **LIVE DEMO**
 
+## <img src="images/exercise.png" height="75px" /> Exercise 04 (5min)
+
+We can take slices of any series, not just arrays.
+
+```python
+element = 'oxygen'
+print('first three characters:', element[0:3])
+first three characters: oxy
+```
+
+What is the value of `element[:4]`?
+
+1. `oxyg`
+2. `gen`
+3. `oxy`
+4. `en`
+
 ## Array operations
 
 * `array`s know how to perform operations on their values
@@ -385,3 +433,81 @@ print(data.mean(axis=0))
 ```
 
 **LIVE DEMO**
+
+# VISUALISATION
+
+## Visualisation
+
+<img src="images/visualisation_header.png" />
+
+* Visualisation deserves a course to itself
+* Here's one I prepared earlier (for the [Software Sustainability Institute](https://www.software.ac.uk/)):
+
+* [https://github.com/widdowquinn/Teaching-Data-Visualisation](https://github.com/widdowquinn/Teaching-Data-Visualisation)
+
+## `matplotlib`
+
+* `matplotlib` is the *de facto* standard plotting library in `Python`
+* we `import`ed `seaborn` earlier, which makes `matplotlib` output nicer
+* we used `%pylab inline` earlier, which puts `matplotlib` output in the notebook
+
+```python
+import matplotlib.pyplot
+image = matplotlib.pyplot.imshow(data)
+```
+
+**LIVE DEMO**
+
+## `matplotlib` `.imshow()`
+
+* `.imshow()` renders matrix values as an image
+* small values are white, large values are black
+* inflammation rises and falls over a 40-day period
+
+<img src="images/matplotlib-01.png" />
+
+## `matplotlib` `.plot()`
+
+* `.plot()` renders a line graph
+* Plot the average inflammation level on each day
+
+```python
+ave_inflammation = numpy.mean(data, axis=0)
+ave_plot = matplotlib.pyplot.plot(ave_inflammation)
+```
+
+* **QUESTION: does this look reasonable?**
+
+**LIVE DEMO**
+
+## Investigating data
+
+* The plot of `.mean()` looks artificial
+* Look at other statistics to gain insight
+
+```python
+max_plot = matplotlib.pyplot.plot(numpy.max(data, axis=0))
+min_plot = matplotlib.pyplot.plot(numpy.min(data, axis=0))
+```
+
+* **QUESTION: does this look reasonable?**
+
+**LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 05 (10min)
+
+Can you create a plot showing the standard deviation (`numpy.std()`) of the inflammation data for each day across all patients?
+
+## Figures and subplots
+
+* We can put all three plots into a single *figure*
+* We create a *figure* with `fig = matplotlib.pyplot.figure()`
+* We add subplots with `ax = fig.add_subplot()`
+* We set labels with `ax.set_ylabel()`
+* We plot data with `ax.plot()`
+
+**LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 06 (10min)
+
+Can you modify the last plot to display the three graphs on top of one another, instead of side by side?

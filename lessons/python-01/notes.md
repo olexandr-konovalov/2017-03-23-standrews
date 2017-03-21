@@ -119,6 +119,9 @@ These notes are a guide to the speaker, as they present the material.
 * **ASK THE LEARNERS GO THROUGH THE EXERCISE**
 
 ----
+**SLIDE** EXERCISE 01
+
+----
 **SLIDE** MY FIRST VARIABLE
 
 * **TYPE THE MARKDOWN IN A CELL AND EXECUTE**
@@ -164,6 +167,21 @@ weight_kg = 100
 print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
 ```
 * **Although we changed the value in `weight_kg`, we did not change `weight_lb` when we did so**
+
+----
+**SLIDE** EXERCISE 02 (5MIN)
+
+* The solution is `3`
+
+----
+**SLIDE** EXERCISE 03 (5MIN)
+
+* The code prints `Hopper Grace`
+
+----
+**SLIDE** WHO'S WHO IN MEMORY?
+
+* In a `Jupyter` notebook or `iPython` terminal, `%whos` will list the variables that are in memory, and their contents.
 
 ----
 **SLIDE** DATA ANALYSIS
@@ -292,6 +310,11 @@ print(small)
 ```
 
 ----
+**SLIDE** EXERCISE 04
+
+* The value is `oxy`, number `3`
+
+----
 **SLIDE** ARRAY OPERATIONS
 
 * Arithmetic operations on `array`s are performed elementwise.
@@ -364,4 +387,131 @@ print('maximum inflammation for patient 2:', numpy.max(data[2, :]))
 ```python
 print(numpy.max(data, axis=1))
 print(data.mean(axis=0))
+```
+
+----
+**SLIDE** VISUALISATION
+
+----
+**SLIDE** VISUALISATION
+
+* **Start a new `markdown` cell**
+* Outline how visualisation is a large topic that deserves more attention
+* Show off the SSI course materials
+
+----
+**SLIDE** `MATPLOTLIB`
+
+* There's no "official" plotting library or graphics library in `Python`
+* `matplotlib` is the `de facto` standard
+* **lots of tools are built on `matplotlib`**
+* We imported `seaborn`, which makes `matploltlib` output a bit more publication-ready
+* We used `%pylab inline`, which puts `matplotlib` output in the notebook
+* **Demo code**
+
+```python
+import matplotlib.pyplot
+image = matplotlib.pyplot.imshow(data)
+```
+
+----
+**SLIDE** `MATPLOTLIB` `.IMSHOW()` 
+
+* The `.imshow()` function converts matrix values into an image
+* Here, small values are white, and large values are black (*8you can change this colour scheme…**)
+* From the image, we cna see inflammation rising and falling over a 40-day period for all patients.
+
+----
+**SLIDE** `MATPLOTLIB` `.PLOT()`
+
+* `.plot()` shows a conventional line graph
+* We're going to use it to plot the average inflammation level on each day of the study
+* We'll create the variable `ave_inflammation` and use `numpy.mean()` on axis `0` of the data
+* We plot the data with `matplotlib`
+* **Demo the code**
+
+```python
+ave_inflammation = numpy.mean(data, axis=0)
+ave_plot = matplotlib.pyplot.plot(ave_inflammation)
+```
+
+* **Ask students if the data looks reasonable?**
+* The data does not look reasonable. Biologically, we expect a sharp rise in inflammation, followed by a slow tail-off
+
+----
+**SLIDE** INVESTIGATING DATA
+
+* Since our plot of `.mean()` values looks artificial, let's check on other statistics to see if we can see what's going on.
+* **NOTE we're not defining a variable, this time**
+* **Demo code**
+
+```python
+max_plot = matplotlib.pyplot.plot(numpy.max(data, axis=0))
+min_plot = matplotlib.pyplot.plot(numpy.min(data, axis=0))
+```
+
+* **Ask students if the data looks reasonable?**
+* The data looks very artificial. The maxima are completely smooth, but the minima are a step function.
+* **NOTE we would not have noticed this without visualisation**
+
+----
+**SLIDE** EXERCISE 05
+
+```python
+std_plot = matplotlib.pyplot.plot(numpy.std(data, axis=0))
+```
+
+----
+**SLIDE** FIGURES AND SUBPLOTS
+
+* **Demo code**
+* The code needs to all go in a single cell
+
+```python
+fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))  # Create a figure object
+axes1 = fig.add_subplot(1, 3, 1)                     # Add three subplots
+axes2 = fig.add_subplot(1, 3, 2)
+axes3 = fig.add_subplot(1, 3, 3)
+axes1.set_ylabel('average')                          # Label and plot the graphs
+axes1.plot(numpy.mean(data, axis=0))
+axes2.set_ylabel('max')
+axes2.plot(numpy.max(data, axis=0))
+axes3.set_ylabel('min')
+axes3.plot(numpy.min(data, axis=0))
+fig.tight_layout()                                   # tidy the figure
+```
+
+* **This is the most demanding code you will write, so far**
+* We can put all three plots we just drew into a single figure
+* To do this, we use `matplotlib` to create a figure, and put it in a variable called `fig`
+  * The `figsize` argument specifies the *width*, then the *height* of the figure being produced, in inches
+* We then create three *axes* - these are the variables that hold the individual plots
+* Using the `.add_subplot()` function, we need to specify three things:
+  * number of rows, number of columns, which cell this figure goes into
+  * **This might need to be drawn out on the board**
+* Once we've created our plot axes, we can add labels and plots to each of them in turn
+* Plot axes properties are usually changed using the `.set_<something>()` syntax
+  * Here we're changing only the label on the *y*-axis
+* We can plot on an axis by using its `.plot()` function
+  * As before, we can pass the output from the `numpy.max()` function directly
+* Finally, we'll tighten up the presentation by using `fig.tight_layout()` - a function that moves the axes until they are visually pleasing.
+
+----
+**SLIDE** EXERCISE 06
+
+* Note that it helps to change `figsize`
+* Otherwise the only change is in `add_subplot()`
+
+```python
+fig = matplotlib.pyplot.figure(figsize=(3.0, 10.0))  # Create a figure object
+axes1 = fig.add_subplot(3, 1, 1)                     # Add three subplots
+axes2 = fig.add_subplot(3, 1, 2)
+axes3 = fig.add_subplot(3, 1, 3)
+axes1.set_ylabel('average')                          # Label and plot the graphs
+axes1.plot(numpy.mean(data, axis=0))
+axes2.set_ylabel('max')
+axes2.plot(numpy.max(data, axis=0))
+axes3.set_ylabel('min')
+axes3.plot(numpy.min(data, axis=0))
+fig.tight_layout()                                   # tidy the figure
 ```
