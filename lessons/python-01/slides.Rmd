@@ -511,3 +511,21 @@ Can you create a plot showing the standard deviation (`numpy.std()`) of the infl
 ## <img src="images/exercise.png" height="75px" /> Exercise 06 (10min)
 
 Can you modify the last plot to display the three graphs on top of one another, instead of side by side?
+
+# LOOPS
+
+## Start a new notebook
+
+<img src="images/new_notebook_menu.png" height="150px" />
+<img src="images/empty_notebook.png" height="150px" />
+<img src="images/loops_notebook.png" height="200px" />
+
+* Add a header
+
+## Motivation
+
+<img src="images/three_plots.png" />
+
+* We wrote some code that plots values of interest from a dataset
+* **BUT** we're soon going to receive *dozens* of datasets to plot
+* So: `for` loops

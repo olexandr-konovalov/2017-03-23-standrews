@@ -515,3 +515,20 @@ axes3.set_ylabel('min')
 axes3.plot(numpy.min(data, axis=0))
 fig.tight_layout()                                   # tidy the figure
 ```
+
+----
+**SLIDE** LOOPS
+
+----
+**SLIDE** START A NEW NOTEBOOK
+
+* Create a new notebook, and give it the name `loops`
+
+----
+**SLIDE** MOTIVATION
+
+* We wrote code that plots values of interest from our dataset
+* **BUT** soon we're going to get dozens of datasets to analyse
+* So, we need to tell the computer to repeat our plots and analysis on each dataset
+* We're going to do this with `for` loops
+* **NOTE: `for` loops are a fundamental method for program control across nearly every programming language**
