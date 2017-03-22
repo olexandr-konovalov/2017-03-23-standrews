@@ -671,3 +671,95 @@ for number in odds:
 ```
 
 **LIVE DEMO**
+
+## Mutability
+
+* `list`s, like `string`s, are sequences
+* **BUT** `list` elements can be changed: `list`s are *mutable*
+* `string`s are not *mutable*
+
+```python
+names = ['Newton', 'Darwing', 'Turing'] # typo in Darwin's name
+print('names is originally:', names)
+names[1] = 'Darwin' # correct the name
+print('final value of names:', names)
+name = 'Darwin'
+name[0] = 'd'
+```
+
+## Changer danger
+
+* There are risks to modifying `list`s in-place
+
+```python
+my_list = [1, 2, 3, 4]
+your_list = my_list
+my_list[1] = 0
+print("my list:", my_list)
+print("your list:", your_list)
+```
+
+**LIVE DEMO**
+
+* **QUESTION:** What is the value of `your_list`?
+
+## `list` copies
+
+* To avoid this kind of effect, you can make a *copy* of a `list` by *slicing* it or using the `list()` function
+* `new_list = old_list[:]`
+
+```python
+my_list = [1, 2, 3, 4]
+your_list = my_list[:]  # or list(my_list)
+print("my list:", my_list)
+print("your list:", your_list)
+my_list[1] = 0
+print("my list:", my_list)
+print("your list:", your_list)
+```
+
+**LIVE DEMO**
+
+## Nested `list`s
+
+* `list`s can contain any datatype, even other `list`s
+
+```python
+x = [['pepper', 'zucchini', 'onion'],
+     ['cabbage', 'lettuce', 'garlic'],
+     ['apple', 'pear', 'banana']]
+```
+
+<img src="images/indexing_lists_python.png" height="250px" />
+
+**LIVE DEMO**
+
+## `list` functions
+
+* `list`s are `Python` *objects* and have useful functions
+
+```python
+odds.append(9)
+print("odds after adding a value:", odds)
+odds.reverse()
+print("odds after reversing:", odds)
+print(odds.pop())
+print("odds after popping:", odds)
+```
+
+**LIVE DEMO**
+
+## Overloading
+
+* *Overloading* refers to an *operator* (e.g. `+`) having more than one meaning, depending on the thing it operates on.
+
+```python
+vowels = ['a', 'e', 'i', 'o', 'u']
+vowels_welsh = ['a', 'e', 'i', 'o', 'u', 'w', 'y']
+print(vowels + vowels_welsh)
+counts = [2, 4, 6, 8, 10]
+repeats = counts * 2
+print(repeats)
+```
+
+* **QUESTION:** What do 'addition' (`+`) and 'multiplication' (`*`) do for lists?

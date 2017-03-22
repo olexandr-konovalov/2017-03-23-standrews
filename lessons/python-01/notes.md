@@ -694,3 +694,133 @@ print(y)
 ----
 **SLIDE** START A NEW NOTEBOOK
 
+----
+**SLIDE** LISTS
+
+* `list`s are a built-in `Python` datatype, denoting ordered collections of elements
+* `list`s are defined by square brackets, and comma-separated values
+* **Demo code**
+
+```python
+odds = [1, 3, 5, 7]
+print('odds are:', odds)
+print('first and last:', odds[0], odds[-1])
+for number in odds:
+    print(number)
+```
+
+* They can be indexed and sliced, as seen for arrays
+* They can be iterated over, in loops
+
+----
+**SLIDE** MUTABILITY
+
+* `list`s and `string`s are both sequences
+* **BUT** you can change the elements in a list, after it is created: **lists are mutable**
+* `string`s are **NOT** mutable
+* **Demo code**
+
+```python
+names = ['Newton', 'Darwing', 'Turing'] # typo in Darwin's name
+print('names is originally:', names)
+names[1] = 'Darwin' # correct the name
+print('final value of names:', names)
+name = 'Darwin'
+name[0] = 'd'
+```
+
+----
+**SLIDE** CHANGER DANGER
+
+* There are risks associated with modifying lists in-place
+* **Demo code**
+
+```python
+my_list = [1, 2, 3, 4]
+your_list = my_list
+my_list[1] = 0
+print("my list:", my_list)
+print("your list:", your_list)
+```
+
+* If two variables refer to the same list, any changes to that list are reflected in both variables.
+
+----
+**SLIDE** LIST COPIES
+
+* To avoid this kind of effect, you can make a *copy* of a `list` by *slicing* it, or using the `list()` function that returns a new list
+* **Demo code**
+
+```python
+my_list = [1, 2, 3, 4]
+your_list = my_list[:]
+print("my list:", my_list)
+print("your list:", your_list)
+my_list[1] = 0
+print("my list:", my_list)
+print("your list:", your_list)
+```
+
+```python
+my_list = [1, 2, 3, 4]
+your_list = list(my_list)
+print("my list:", my_list)
+print("your list:", your_list)
+my_list[1] = 0
+print("my list:", my_list)
+print("your list:", your_list)
+```
+
+----
+**SLIDE** NESTED LISTS
+
+* `list`s can contain any datatype, even other lists
+* Imagine we have a grocery store with three shelves, and the items on the shelves are arranged with {pepper, zucchini, onion} on the top shelf, {cabbage, lettuce, garlic} on the middle shelf, and {apple, pear, banana} on the lower shelf. 
+* We can represent this in a *nested list*: one list per shelf, and a list that contains the three lists, to represent the grocery store.
+* **Demo code**
+
+```python
+x = [['pepper', 'zucchini', 'onion'],
+     ['cabbage', 'lettuce', 'garlic'],
+     ['apple', 'pear', 'banana']]
+```
+
+**NOTE: This should remind you of the `numpy` array you loaded earlier!**
+**Work through the code below**
+
+```python
+print([x[0]])
+print(x[0])
+print(x[0][0])
+```
+
+----
+**SLIDE** `LIST` FUNCTIONS
+
+* `list`s are `Python` objects and have a number of useful functions to modify their contents
+* **Demo code**
+
+```python
+odds.append(9)
+print("odds after adding a value:", odds)
+odds.reverse()
+print("odds after reversing:", odds)
+print(odds.pop())
+print("odds after popping:", odds)
+```
+
+----
+**SLIDE** OVERLOADING
+
+* *Overloading* refers to an *operator* (e.g. `+`) having more than one meaning, depending on the thing it operates on.
+
+```python
+vowels = ['a', 'e', 'i', 'o', 'u']
+vowels_welsh = ['a', 'e', 'i', 'o', 'u', 'w', 'y']
+print(vowels + vowels_welsh)
+counts = [2, 4, 6, 8, 10]
+repeats = counts * 2
+print(repeats)
+```
+
+* **Ask the learners what 'addition' (`+`) and 'multiplication' (`*`) do for lists**
