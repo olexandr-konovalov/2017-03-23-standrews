@@ -763,3 +763,146 @@ print(repeats)
 ```
 
 * **QUESTION:** What do 'addition' (`+`) and 'multiplication' (`*`) do for lists?
+
+# MAKING CHOICES
+
+## Start a new notebook
+
+<img src="images/new_notebook_menu.png" height="150px" />
+<img src="images/empty_notebook.png" height="150px" />
+<img src="images/choices_notebook.png" height="200px" />
+
+* Add a header
+
+## Conditionals
+
+* We often want the computer to do `<something>` **`if`** some condition is **true**
+* To do this, we can use an `if` statement:
+
+```python
+if <condition>:
+  <executed if condition is True>
+```
+
+```python
+num = 37
+if num > 100:
+    print('greater')
+print('done')
+```
+
+**LIVE DEMO**
+
+## `if-else` statements
+
+* An `if` statement executes code if the condition evaluates as `true`
+* But what if the condition evaluates as `false`?
+
+```python
+if <condition>:
+    <executed if condition is True>
+else:
+    <executed if condition is not True>
+```
+
+```python
+num = 37
+if num > 100:
+    print('greater')
+else:
+    print('not greater')
+print('done')
+```
+
+**LIVE DEMO**
+
+## Conditional logic
+
+<img src="images/python-flowchart-conditional.png" />
+
+## `if-elif-else`
+
+* We can chain tests together using `elif` (`else if`)
+
+```python
+if <condition1>:
+    <executed if condition1 is True>
+elif <condition2>:
+    <executed if condition2 is True and condition1 is not True>
+else:
+    <executed if no conditions True>
+```
+
+```python
+num = -3
+if num > 0:
+    print(num, "is positive")
+elif num == 0:
+    print(num, "is zero")
+else:
+    print(num, "is negative")
+```
+
+**LIVE DEMO**
+
+## Combining conditions
+
+* Conditions can be combined using *Boolean Logic*
+* Operators include `and`, `or` and `not`
+
+```python
+if (1 > 0) and (-1 > 0):
+    print('both parts are true')
+else:
+    print('at least one part is false')
+```
+
+**LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 10 (5min)
+
+What is the result of executing the code below?
+
+```python
+if 4 > 5:
+    print('A')
+elif 4 == 5:
+    print('B')
+elif 4 < 5:
+    print('C')
+```
+
+1. `A`
+2. `B`
+3. `C`
+4. `B` and `C`
+
+## More operators
+
+* Two useful condition operators are `==` (equality) and `in` (membership)
+
+```python
+print(1 == 1)
+print(1 == 2)
+print('a' in 'toast')
+print('b' in 'toast')
+print(1 in [1, 2, 3])
+print(1 in range(3))
+print(1 in range(2, 10))
+```
+
+**LIVE DEMO**
+
+## List comprehensions
+
+* We often want to loop over a list of elements and make a decision on the basis of whether the element meets some condition.
+* *List comprehensions* offer a concise way to do this
+
+```python
+letters = 'abcdefghijklmnopqrstuvwxyz'
+vowels = 'aeiou'
+result = [l.upper() for l in letters if l in vowels]
+print(result)
+```
+
+**LIVE DEMO**

@@ -824,3 +824,147 @@ print(repeats)
 ```
 
 * **Ask the learners what 'addition' (`+`) and 'multiplication' (`*`) do for lists**
+
+----
+**SLIDE** MAKING CHOICES
+
+----
+**SLIDE** START A NEW NOTEBOOK
+
+----
+**SLIDE** CONDITIONALS
+
+* We often want the computer to do `<something>` **`if`** some condition is **true**
+* To do this, we can use an `if` statement
+* `if` statements end in a colon (`:`) and have a *condition* - the *condition* is evaluated and, if found to be `true`, the code block is executed
+* The code block is *indented* as was the case with the `for` loop
+* **Demo code**
+
+```python
+num = 37
+if num > 100:
+    print('greater')
+print('done')
+```
+
+----
+**SLIDE** `IF-ELSE` STATEMENTS
+
+* An `if` statement executes code if the condition evaluates as `true`
+* But what if the condition evaluates as `false`?
+* The `else` structure is like the `if` structure - it ends in a colon (`:`) and the indented code block beneath it executes if the condition is `false`
+* **Demo code**
+
+```python
+num = 37
+if num > 100:
+    print('greater')
+else:
+    print('not greater')
+print('done')
+```
+
+----
+**SLIDE** CONDITIONAL LOGIC
+
+* Describe flowchart
+
+----
+**SLIDE** `IF-ELIF-ELSE` CONDITIONALS
+
+* We can chain conditional tests together with `elif` (short for `else if`)
+* The `elif` statement structure is the same as the `if` statement structure - the indented code block is executed if the condition is true, and **no previous conditions have been met**.
+* **Demo code**
+
+```python
+num = -3
+if num > 0:
+    print(num, "is positive")
+elif num == 0:
+    print(num, "is zero")
+else:
+    print(num, "is negative")
+```
+
+* **NOTE: the test for equality is a double-equals!**
+
+----
+**SLIDE** COMBINING CONDITIONS
+
+* Conditions can be combined using *Boolean Logic*
+* Operators include `and`, `or` and `not`
+* **Demo code**
+
+```python
+if (1 > 0) and (-1 > 0):
+    print('both parts are true')
+else:
+    print('at least one part is false')
+```
+
+----
+**SLIDE** EXERCISE 10
+
+* Solution: `C`
+
+----
+**SLIDE** MORE OPERATORS
+
+* There are two operators you will meet and use frequently
+* `==` (double-equals) is the quality operator, and returns `True` if the left-hand-side value is equal to the right-hand-side value
+* `in` is the membership operator, and returns `True` if the left-hand-side value is in the right-hand-side value
+* **Demo code**
+
+```python
+print(1 == 1)
+print(1 == 2)
+print('a' in 'toast')
+print('b' in 'toast')
+print(1 in [1, 2, 3])
+print(1 in range(3))
+print(1 in range(2, 10))
+```
+
+----
+**SLIDE** LIST COMPREHENSIONS
+
+* We often want to loop over a list of elements and make a decision on the basis of whether the element meets some condition.
+* *List comprehensions* offer a concise way to do this
+* **Demo code**
+* We can write a loop that checks letters for whether they're a vowel and, if they are, convert them to upper case and add them to a list.
+
+```python
+letters = 'abcdefghijklmnopqrstuvwxyz'
+vowels = 'aeiou'
+
+result = []
+for l in letters:
+    if l in vowels:
+        result.append(l.upper())
+print(result)
+```
+
+* We can do this in a single line with a *list comprehension*
+* Firstly, we rewrite the loop as a *list comprehension*
+* By enclosing the for l in letters part of the loop in square brackets, we are asking the loop to return a list.
+* By asking directly for l in the brackets, we get the loop to return each element l to us as we go round the loop
+
+```python
+result = [l for l in letters]
+print(result)
+```
+
+* In addition to asking for each element with each cycle around the loop, we can do things with or to that element, such as convert it to upper case by calling its .upper() method/function.
+
+```python
+result = [l.upper() for l in letters]
+print(result)
+```
+
+* Finally, we can add a condition to the list comprehension so that the loop only returns values when the condition evaluates to True.
+* *Here, we require that the letter in l can be found in the vowels string.
+
+```python
+result = [l.upper() for l in letters if l in vowels]
+print(result)
+```
