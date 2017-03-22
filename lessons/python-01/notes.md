@@ -968,3 +968,113 @@ print(result)
 result = [l.upper() for l in letters if l in vowels]
 print(result)
 ```
+
+----
+**SLIDE** ANALYSING MULTIPLE FILES
+
+----
+**SLIDE** START A NEW NOTEBOOK
+
+----
+**SLIDE** ANALYSING MULTIPLE FILES
+
+* We have received several files of data from the inflammation studies, and we would like to perform the same operations on each of them.
+* We have learned how to open files, read in the data, visualise the data, loop over contents, and make decisions based on that content.
+* Now we need to know how to interact with the *filesystem* to get our data files.
+
+-----
+**SLIDE** THE `OS` MODULE
+
+* To interact with the filesystem, we need to import the `os` module
+* This allows us to interact with the filesystem in the same way, regardless of the operating system we work on
+* **Do imports in notebook**
+* **NOTE: it's usual to abbreviate imported modules, e.g. `numpy` to `np`, if they are used frequently**
+
+```python
+%pylab inline
+
+import matplotlib.pyplot
+import numpy as np
+import os
+import seaborn
+```
+
+----
+**SLIDE** `OS.LISTDIR`
+
+* The `.listdir()` function lists the contents of a directory
+* Our data is in the `'data'` directory
+* **Demo code**
+
+```python
+print(os.listdir('data'))
+```
+
+* The list can be filtered with a `for` loop or *list comprehension*
+
+```python
+files = [f for f in os.listdir('data')]
+print(files)
+```
+
+* We can use the .startswith() function of the `string` object (all the filenames are strings) as the conditional
+* We keep only filenames that start with `inflammation`.
+
+```python
+files = [f for f in os.listdir('data') if f.startswith('inflammation')]
+print(files)
+```
+
+----
+**SLIDE** `OS.PATH.JOIN`
+
+* The `os.listdir()` function only returns filenames, not the *path* (relative or absolute) to those files.
+* To construct a path, we can use the `os.path.join()` function. This takes directory and file names, and returns a path built from them, as a string, suitable for the underlying operating system.
+* **This is useful for making code shareable and usable on all OS/computers**
+* **Demo code**
+
+```python
+print(os.path.join('data', 'inflammation-01.csv'))
+```
+
+----
+**SLIDE** VISUALISING THE DATA
+
+* Now we have all the tools we need to load all the inflammation data files, and visualise the mean, minimum and maximum values in an array of plots.
+  * We can get a list of paths to the data files with `os` and a *list comprehension*
+  * We can load data from a file with `np.loadtxt()`
+  * We can calculate summary statistics with `mp.mean()`, `np.max()`, etc.
+  * We can create figures with `matplotlib`, and arrays of figures with `.add_subplot()`
+
+----
+**SLIDE** VISUALISATION CODE
+
+```python
+filenames = [os.path.join('data', f) for f in os.listdir('data')
+             if f.startswith('inflammation')]
+
+for f in filenames:
+    print(f)
+
+    data = np.loadtxt(fname=f, delimiter=',')
+
+    fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))
+
+    axes1 = fig.add_subplot(1, 3, 1)
+    axes2 = fig.add_subplot(1, 3, 2)
+    axes3 = fig.add_subplot(1, 3, 3)
+
+    axes1.set_ylabel('average')
+    axes1.plot(np.mean(data, axis=0))
+
+    axes2.set_ylabel('max')
+    axes2.plot(np.max(data, axis=0))
+
+    axes3.set_ylabel('min')
+    axes3.plot(np.min(data, axis=0))
+
+    fig.tight_layout()
+    matplotlib.pyplot.show()
+```
+
+* **Show the collapse/expand click option in the notebook**
