@@ -1,0 +1,73 @@
+---
+title: "Building Programs With Python (2)"
+author: "Leighton Pritchard"
+output: 
+  revealjs::revealjs_presentation:
+    theme: white
+    center: true
+    highlight: pygments
+    transition: fade
+    css: reveal.css
+---
+
+# Introduction
+
+## Goal 1
+
+* **To learn the basic concepts of programming**
+
+We use `Python` for this:
+
+* we need *something* ;)
+* free, well-documented, cross-platform
+* widely-used
+
+**Use what your colleagues (tend to) use**
+
+## Goal 2
+
+* **To analyse and visualise experimental data**
+
+* Effectiveness of a new treatment for arthritis
+* Several patients, recording inflammation on each day
+* Tabular (comma-separated) data
+
+**We can do this with a little programming**
+
+* Why programming? **AUTOMATION**
+
+# Setup
+
+## Setting up - 1
+
+Before we begin… 
+
+* **make a neat working environment**
+* obtain data
+
+```bash
+cd ~/Desktop
+cd python-novice-inflammation
+```
+
+**LIVE DEMO**
+
+# Getting Started
+
+## Starting `Jupyter`
+
+At the command-line, start `Jupyter` notebook:
+
+```bash
+jupyter notebook
+```
+
+## `Jupyter` landing page
+
+<img src="images/jupyter_landing.png" />
+
+## Create a new notebook
+
+<img src="images/new_notebook_menu.png" height="150px" />
+<img src="images/empty_notebook.png" height="150px" />
+<img src="images/functions_notebook.png" height="200px" />
