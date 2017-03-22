@@ -618,3 +618,79 @@ print('There are', length, 'vowels')
 ```
 
 * **Demo the code**
+* Talk through the operations of the loop, if necessary
+
+----
+**SLIDE** LOOP VARIABLES
+
+* The *loop variable* still exists once the loop is finished
+* **Demo code**
+
+```python
+letter = 'z'
+for letter in 'abc':
+    print(letter)
+print('after the loop, letter is', letter)
+```
+
+* The value of `letter` is `c`, the last updated value in the loop - not `z`, which would be the case if the loop variable only had scope within the loop
+
+----
+**SLIDE** `RANGE()`
+
+* The `range()` function creates a sequence of numbers.
+* The sequence depends on the number and value of arguments given
+* **Demo code - loop over all three options**
+
+```python
+range(3)
+range(2, 5)
+range(3, 10, 3)
+for val in range(3, 10, 3):
+    print(val)
+```
+
+* A single value *n* gives the sequence `[0, ..., n-1]`
+* Two values: *m, n* gives the sequence `[m, ..., n-1]`
+* Three values: *m, n, p* gives the sequence `[m, m+p, ..., n-1]` and skips `n-1` if it's not in the sequence.
+* **NOTE: `range()` returns a `range` type that can be iterated over.**
+
+----
+**SLIDE** EXERCISE 07
+
+```python
+result = 1
+for val in range(3):
+    result = result * 5
+print(result)
+```
+
+----
+**SLIDE** EXERCISE 08
+
+```python
+instr = "Newton"
+outstr = ""
+for char in instr:
+    outstr =  char + outstr
+print(outstr)
+```
+
+----
+**SLIDE** EXERCISE 09
+
+```python
+x = 5
+coeffs = [2, 4, 3, 2, 1]
+y = 0
+for idx, val in enumerate(coeffs):
+    y = y + val * (x ** idx)
+print(y)
+```
+
+----
+**SLIDE** LISTS
+
+----
+**SLIDE** START A NEW NOTEBOOK
+
