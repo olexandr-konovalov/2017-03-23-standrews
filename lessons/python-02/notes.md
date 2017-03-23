@@ -571,3 +571,65 @@ for number in range(10):
         message = message + "b"
 print(message)
 ```
+
+----
+**SLIDE** DEFENSIVE PROGRAMMING
+
+----
+**SLIDE** CREATE A NEW NOTEBOOK
+
+----
+**SLIDE** DEFENSIVE PROGRAMMING
+
+* So far we have focused on the basic tools of writing a program: variables, lists, loops, conditionals, and functions.
+* We haven't looked very much at whether a program is getting the right answer (and whether it continues to get the right answer as we change it).
+* **It's all very well having some code, but if it doesn't give the right answer it can be damaging, or useless**
+* **Defensive programming** is the practice of expecting your code to have mistakes, and guarding against them.
+* To do this, we will write some code that *checks its own operation*.
+* This is generally good practice, that speeds up software development and helps ensure that your code is doing what you intend.
+
+----
+**SLIDE** ASSERTIONS
+
+* Assertions are a `Pythonic` way to see if code runs correctly
+    * 80-90% of the `Firefox` source code is assertions!
+* We `assert` that a *condition* is `True`
+    * If it's `True`, the code may be correct
+    * If it's `False`, the code is **not** correct
+* The syntax for an assertion is that we `assert` some `<condition>` is `True`, and if it's not, an error is thrown (`AssertionError`), with some text explaining the problem.
+    
+```python
+assert <condition>, "Some text describing the problem"
+```
+
+----
+**SLIDE** EXAMPLE ASSERTION
+
+* Type code **then ask learners what it does**
+
+```python
+numbers = [1.5, 2.3, 0.7, -0.001, 4.4]
+total = 0.0
+for n in numbers:
+    assert n > 0.0, 'Data should only contain positive values'
+    total += n
+print('total is:', total)
+```
+
+* **Demo code**
+
+```python
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-1-985f50018947> in <module>()
+      2 total = 0.0
+      3 for n in numbers:
+----> 4     assert n > 0.0, 'Data should only contain positive values'
+      5     total += n
+      6 print('total is:', total)
+
+AssertionError: Data should only contain positive values
+```
+
+* The traceback tells us which *assertion* failed.
+
