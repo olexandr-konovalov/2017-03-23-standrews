@@ -157,6 +157,46 @@ print(outer("helium"))
 hm
 ```
 
+## Scope
+
+* Variables defined within a function, including parameters, are not 'visible' outside the function
+* This is called *function scope*
+
+```python
+a = "Hello"
+
+def my_fn(a):
+  a = "Goodbye"
+
+my_fn(a)  
+print(a)
+```
+
+**LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 02 (10min)
+
+What would be printed if you ran the code below?
+
+```python
+a = 3
+b = 7
+
+def swap(a, b):
+    temp = a
+    a = b
+    b = temp
+
+swap(a, b)
+print(b, a)
+```
+
+1. `7 3`
+2. `3 7`
+3. `3 3`
+4. `7 7`
+
+
 # ANALYSIS
 
 ## Tidying Up
@@ -329,7 +369,7 @@ centre(data)
 
 **LIVE DEMO**
 
-## <img src="images/exercise.png" height="75px" /> Exercise 02 (15min)
+## <img src="images/exercise.png" height="75px" /> Exercise 03 (15min)
 
 Can you write a function called `rescale()` that
 

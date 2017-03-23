@@ -150,6 +150,41 @@ def outer(s)
 ```
 
 ----
+**SLIDE** SCOPE
+
+* Variables defined within a function, including parameters, are not 'visible' outside the function
+* This is called *function scope*
+**Demo code**
+
+```python
+a = "Hello"
+
+def my_fn(a):
+  a = "Goodbye"
+  
+my_fn(a)  
+print(a)
+```
+
+* To move values to and from functions, you should generally `return` them from the function
+* **Demo code**
+
+```python
+a = "Hello"
+
+def my_fn(a):
+  a = "Goodbye"
+  
+a = my_fn(a)
+print(a)
+```
+
+----
+**SLIDE** EXERCISE 02
+
+* Solution: `1: 7 3` (this differs from that on the SWC page)
+
+----
 **SLIDE** ANALYSIS
 
 ----
@@ -367,7 +402,7 @@ centre([1, 2, 3])
 ```
 
 ----
-**SLIDE** EXERCISE 02
+**SLIDE** EXERCISE 03
 
 ```python
 def rescale(data):
