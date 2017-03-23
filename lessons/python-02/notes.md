@@ -411,3 +411,50 @@ def rescale(data):
     h = np.max(data)
     return (data - L) / (H - L)
 ```
+
+----
+**SLIDE** ERRORS AND EXCEPTIONS
+
+----
+**SLIDE** CREATE A NEW NOTEBOOK
+
+----
+**SLIDE** ERRORS
+
+* Programming is essentially just making errors over and over again until the code works ;)
+* The key skill is learning how to identify, and then fix, the errors when they are reported.
+* **All programmers** make errors. 
+
+----
+**SLIDE** TRACEBACK
+
+* `Python` tries to be helpful, and provides extensive information about errors
+* These are called *tracebacks*
+* We'll induce one, so we can look at it
+* **Demo code**
+
+```python
+def favourite_ice_cream():
+    ice_creams = [
+        "chocolate",
+        "vanilla",
+        "strawberry"
+    ]
+    print(ice_creams[3])
+
+favourite_ice_cream()
+```
+
+----
+**SLIDE** PARTS OF A TRACEBACK
+
+* **Talk through the traceback on the notebook**
+* The *stack* of all steps leading to the error is shown
+* The steps are separated by lines starting `<ipython-input-1…`
+* The steps run in order from top to bottom
+* The first step has an arrow, showing where we were when the error happened. We were calling the `favourite_ice_cream()` function
+* The second step tells us that we were *in* the `favourite_ice_cream()` function
+* The second step also points to the line `print(ice_creams[3])`, which is where the error occurs
+* The second step is the last step, and the precise error is shown on the final line: `IndexError: list index out of range`
+* Together, this tells us that we have made an index error in the line `print(ice_creams[3])`, and by looking we can see that we've tried to use an index outside the length of the list.
+

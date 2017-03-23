@@ -374,6 +374,62 @@ centre(data)
 Can you write a function called `rescale()` that
 
 * takes an array as input
-* returns an array with values scaled to lie in the range [0.0, 1.0]
+* returns an array with values scaled in the range [0.0, 1.0]
 * has an informative docstring
 * **HINT:** If `L` and `H` are the lowest and highest values in the original array, then the replacement for a value `v` should be `(v-L) / (H-L)`.
+
+# ERRORS AND EXCEPTIONS
+
+## Create a new notebook
+
+<img src="images/new_notebook_menu.png" height="150px" />
+<img src="images/empty_notebook.png" height="150px" />
+<img src="images/errors_notebook.png" height="200px" />
+
+## Errors
+
+* Programming: the process of making errors and correcting them until the code works
+* **All** programmers make errors
+* Identifying, fixing, and coping with errors is a valuable skill
+
+## Traceback
+
+* `Python` tries to tell you what has gone wrong by providing a `traceback`
+
+```python
+def favourite_ice_cream():
+    ice_creams = [
+        "chocolate",
+        "vanilla",
+        "strawberry"
+    ]
+    print(ice_creams[3])
+
+favourite_ice_cream()
+```
+
+**LIVE DEMO**
+
+## Parts of a traceback
+
+```python
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-1-b0e1f9b712d6> in <module>()
+      8     print(ice_creams[3])
+      9 
+---> 10 favourite_ice_cream()
+
+<ipython-input-1-b0e1f9b712d6> in favourite_ice_cream()
+      6         "strawberry"
+      7     ]
+----> 8     print(ice_creams[3])
+      9 
+     10 favourite_ice_cream()
+
+IndexError: list index out of range
+```
+
+* (mostly, you can just look at the last couple of levels)
+
+**LIVE DEMO**
