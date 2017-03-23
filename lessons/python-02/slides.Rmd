@@ -433,3 +433,109 @@ IndexError: list index out of range
 * (mostly, you can just look at the last couple of levels)
 
 **LIVE DEMO**
+
+## Syntax errors
+
+* *Logic* errors occur when the code is 'correct' but does something 'illegal'
+* *Syntax* errors occur when the code is not understandable as `Python`
+
+```python
+def some_function()
+    msg = "hello, world!"
+    print(msg)
+     return msg
+```
+
+**LIVE DEMO**
+
+## Syntax traceback
+
+```python
+  File "<ipython-input-3-dbf32ad5d3e8>", line 1
+    def some_function()
+                       ^
+SyntaxError: invalid syntax
+```
+
+**LIVE DEMO**
+
+## Fixed?
+
+```python
+def some_function():
+    msg = "hello, world!"
+    print(msg)
+     return msg
+```
+
+**LIVE DEMO**
+
+## Not quite
+
+```python
+  File "<ipython-input-4-e169556d667b>", line 4
+    return msg
+    ^
+IndentationError: unexpected indent
+```
+
+**LIVE DEMO**
+
+## Name errors
+
+* `NameError`s occur when a variable is not defined in scope
+* (often due to a typo!)
+
+```python
+print(a)
+
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-5-c5a4f3535135> in <module>()
+----> 1 print(a)
+
+NameError: name 'a' is not defined
+```
+
+**LIVE DEMO**
+
+## Index Errors
+
+* If you try to access an element of a collection that does not exist, you'll get an `IndexError`
+
+```python
+letters = ['a', 'b', 'c']
+print("Letter #1 is", letters[0])
+print("Letter #2 is", letters[1])
+print("Letter #3 is", letters[2])
+print("Letter #4 is", letters[3])
+
+Letter #1 is a
+Letter #2 is b
+Letter #3 is c
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-7-656a22fa6ec5> in <module>()
+      3 print("Letter #2 is", letters[1])
+      4 print("Letter #3 is", letters[2])
+----> 5 print("Letter #4 is", letters[3])
+
+IndexError: list index out of range
+```
+
+**LIVE DEMO**
+
+## <img src="images/exercise.png" height="75px" /> Exercise 04 (15min)
+
+* Can you read the code below, and (without running it) identify what the errors are?
+* Can you fix all the errors so the code prints `abbabbabba`?
+
+```python
+for number in range(10):
+    # use a if the number is a multiple of 3, otherwise use b
+    if (Number % 3) == 0:
+        message = message + a
+    else:
+        message = message + "b"
+print(message)
+```

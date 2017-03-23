@@ -458,3 +458,116 @@ favourite_ice_cream()
 * The second step is the last step, and the precise error is shown on the final line: `IndexError: list index out of range`
 * Together, this tells us that we have made an index error in the line `print(ice_creams[3])`, and by looking we can see that we've tried to use an index outside the length of the list.
 
+----
+**SLIDE** SYNTAX ERRORS
+
+* The error you saw just now was a *logic error* - the code was valid `Python`, but it did something 'illegal'
+* *Syntax* errors occur when the code is not interpretable as valid `Python`
+* **Demo code**
+
+```python
+def some_function()
+    msg = "hello, world!"
+    print(msg)
+     return msg
+```
+
+----
+**SLIDE** SYNTAX TRACEBACK
+
+* `Python` tells us there's a `SyntaxError` - the code isn't written correctly
+* It points to the approximate location of the problem with a caret/hat (`^`)
+* We can see that we need to put a colon at the end of the function declaration
+* **Fix the code**
+
+----
+**SLIDE** FIXED?
+
+* Show fixed code
+* **Demo code**
+
+```python
+def some_function():
+    msg = "hello, world!"
+    print(msg)
+     return msg
+```
+
+----
+**SLIDE** NOT QUITE
+
+* `Python` now tells us that there's an `IndentationError`
+* We don't learn about all the syntax errors at one time - `Python` gives up after the first one it finds
+* **(fixing the first error in a file might correct all subsequent errors)**
+
+----
+**SLIDE** NAME ERRORS
+
+* If you try to use a variable that is not defined in *scope*, you will get a `NameError`
+* This often happens with typos
+* **Demo code**
+
+```python
+print(a)
+
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-5-c5a4f3535135> in <module>()
+----> 1 print(a)
+
+NameError: name 'a' is not defined
+```
+
+* **This is true in functions/loops, too**
+
+```python
+for i in range(3):
+    count = count + i
+    
+ ---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-6-15ebe951e74d> in <module>()
+      1 for i in range(3):
+----> 2     count = count + i
+
+NameError: name 'count' is not defined
+```
+
+----
+**SLIDE** INDEX ERRORS
+
+* If you try to access an element of a collection that does not exist, you'll get an `IndexError`
+
+```python
+letters = ['a', 'b', 'c']
+print("Letter #1 is", letters[0])
+print("Letter #2 is", letters[1])
+print("Letter #3 is", letters[2])
+print("Letter #4 is", letters[3])
+
+Letter #1 is a
+Letter #2 is b
+Letter #3 is c
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-7-656a22fa6ec5> in <module>()
+      3 print("Letter #2 is", letters[1])
+      4 print("Letter #3 is", letters[2])
+----> 5 print("Letter #4 is", letters[3])
+
+IndexError: list index out of range
+```
+
+----
+**SLIDE** EXERCISE 04
+
+```python
+message = ""
+for number in range(10):
+    # use a if the number is a multiple of 3, otherwise use b
+    if (number % 3) == 0:
+        message = message + "a"
+    else:
+        message = message + "b"
+print(message)
+```
